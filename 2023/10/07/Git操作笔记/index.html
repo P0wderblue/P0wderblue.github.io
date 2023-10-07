@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Git操作笔记 | P0wder_blue</title><meta name="author" content="LiangYutao"><meta name="copyright" content="LiangYutao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Git学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git操作笔记">
+<meta property="og:url" content="http://example.com/2023/10/07/Git%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="P0wder_blue">
+<meta property="og:description" content="Git学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/pics/1.jpg">
+<meta property="article:published_time" content="2023-10-07T08:44:02.000Z">
+<meta property="article:modified_time" content="2023-10-07T08:44:56.411Z">
+<meta property="article:author" content="LiangYutao">
+<meta property="article:tag" content="Git操作">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/pics/1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/10/07/Git%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: LiangYutao","link":"链接: ","source":"来源: P0wder_blue","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git操作笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-07 16:44:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/font.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/pics/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/pics/blogPic.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="P0wder_blue"><span class="site-name">P0wder_blue</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git操作笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-07T08:44:02.000Z" title="发表于 2023-10-07 16:44:02">2023-10-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-07T08:44:56.411Z" title="更新于 2023-10-07 16:44:56">2023-10-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git操作笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h4 id="git-rebase-和git-merge-的区别"><a href="#git-rebase-和git-merge-的区别" class="headerlink" title="git rebase 和git merge 的区别"></a>git rebase 和git merge 的区别</h4><p>相同点 二者都可以进行代码的合并操作</p>
+<p>不同点</p>
+<p><img src="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/typora/653593470d7612be9a6139fcb197a6d4.jpeg" alt="img"></p>
+<p>在merge之后 是将当前分支与master分支进行合并 并且处理一次冲突</p>
+<p><img src="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/typora/9bc9d8a28bbf56750309fb090c35b248.jpeg" alt="img"></p>
+<p>在rebase之后 是将当前分支的所有commit提交到master分支上 可能会处理多次冲突</p>
+<p><img src="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/typora/a1a3b00af76bf8a469726b832a002728.jpeg" alt="img"></p>
+<p>总结而言</p>
+<p>merge是将自己分支版本合并到master</p>
+<p>rebase是将之前的代码用自己的commit进行覆盖</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/eclipse1024/article/details/115218080">这个可以看看</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yxhblogs/p/10527271.html">rebase实际使用</a></p>
+<p>git rebase流程<br>首先git log 来查看commit记录 方便进行修改操作</p>
+<p>git rebase -i commitid1 commitid2<br>（左开右闭）<br>-i  -&gt; interactive 交互式界面让用户进行编辑合并操作</p>
+<p>todo 未完待续</p>
+<h4 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h4><h5 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h5><blockquote>
+<p>一直在某个子分支开发功能。你还没开发完，然后你的同事告诉你，你引用的其他模块的内容有更新，你需要拉取一下最新的master代码更新一下该的模块。</p>
+</blockquote>
+<p>推荐使用rebase。该模块的内容更新和你功能无关，合并代码也不会影响你的功能，无需保留该记录。如果使用merge，在开发周期长的情况下，会创造很多无用的commit记录。</p>
+<h4 id="场景二"><a href="#场景二" class="headerlink" title="场景二"></a>场景二</h4><blockquote>
+<p>你和同事两个人在开发同一个模块，你同事开发的部分功能已经合并到了master，通知你更新一下最新的模块代码。</p>
+</blockquote>
+<p>推荐使用merge。你和同事开发的是同一模块，很可能他的某个改动会导致你的功能出问题，如果出了问题，保留记录能便于后期排查问题。（如果从逻辑上可以判断不会有影响，那么使用rebase也可以）</p>
+<h4 id="场景三"><a href="#场景三" class="headerlink" title="场景三"></a>场景三</h4><blockquote>
+<p>现在有个子分支模块已经开发完，master分支需要将这个分支的内容合并进来。</p>
+</blockquote>
+<p>推荐使用merge。使用merge可以留有提交记录，如果该模块出了问题，方便后面排查问题。</p>
+<h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><p>假如使用rebase，一定要遵守rebase黄金法则，共享的public分支不能rebase，</p>
+<p>通俗的说，当一个分支是一个人开发处理的，才可以rebase，假如一个分支被多个人共享开发，然后rebase，那就乱套了，处理起来复杂；</p>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/191655.htm">pull冲突的解决办法</a></p>
+<h4 id="Git-tag"><a href="#Git-tag" class="headerlink" title="Git tag"></a>Git tag</h4><p>是给commit的记录进行打标签操作<br>一、创建tag</p>
+<p>创建本地标签<br>1、创建轻量标签<br>轻量标签指向一个发行版的分支，其只是一个像某commit的引用，不存储名称时间戳及标签说明等信息。定义方法如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag &lt;版本号&gt;-light</span><br></pre></td></tr></table></figure>
+
+
+<p>2、创建带附注标签<br>相对于轻量标签，附注标签是一个独立的标签对象，包含了名称时间戳以及标签备注等信息，同时指向对应的commit。定义方法如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a &lt;版本号&gt; -m <span class="string">&quot;&lt;备注信息&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>3、</p>
+<p>同时我们也可以像特定的commit添加标签，使用该commit对应的SHA值即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a &lt;版本号&gt; &lt;SHA值&gt; -m <span class="string">&quot;&lt;备注信息&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>比如 git tag -a 1.0.0 0c3b62d -m “Release Edition v1.0.0” 就是为SHA为0c3b62d的这次提交打了1.0发行版的tag</p>
+<h4 id="Git-Revert"><a href="#Git-Revert" class="headerlink" title="Git Revert"></a>Git Revert</h4><p>git revert 是一个用于撤销之前提交的更改的命令。它会创建一个新的提交，用于撤销之前的提交。具体操作如下：</p>
+<p>在要撤销更改的项目目录下，执行以下命令：</p>
+<p>git revert <commit><br>其中 <commit> 是要撤销的提交的哈希值或引用，可以是一个提交号或分支名。</p>
+<p>执行上述命令后，Git 会将之前的提交的更改应用到当前分支上，并生成一个新的提交。</p>
+<p>如果撤销多个提交，可以使用以下命令：</p>
+<p>git revert -n <commit1> <commit2> …<br>其中 -n 选项告诉 Git 不要立即生成新的提交，在完成所有撤销操作后再手动提交。</p>
+<p>需要注意的是，git revert 不会删除之前的提交，而是创建一个新的提交来撤销之前的更改。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">LiangYutao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/10/07/Git%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/">http://example.com/2023/10/07/Git%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">P0wder_blue</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git%E6%93%8D%E4%BD%9C/">Git操作</a></div><div class="post_share"><div class="social-share" data-image="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/pics/1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/typora/image-20231007105925450.png" target="_blank"><img class="post-qr-code-img" src="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/typora/image-20231007105925450.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/typora/image-20231007105915943.png" target="_blank"><img class="post-qr-code-img" src="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/typora/image-20231007105915943.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/07/Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/" title="Shell脚本备份"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Shell脚本备份</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/" title="设计模式笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">设计模式笔记</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pobl-image-oss.oss-cn-heyuan.aliyuncs.com/pics/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LiangYutao</div><div class="author-info__description">l'impossibilité d'aimer dans notre temps. </div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://music.163.com/#/user/home?id=438480638"><i class="iconfont icon-wangyiyunyinle"></i><span>My NetEase</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Not Ready Yet</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git"><span class="toc-number">1.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-rebase-%E5%92%8Cgit-merge-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">git rebase 和git merge 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">使用场景：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80"><span class="toc-number">1.2.1.</span> <span class="toc-text">场景一</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%8C"><span class="toc-number">1.3.</span> <span class="toc-text">场景二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%89"><span class="toc-number">1.4.</span> <span class="toc-text">场景三</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BC%9A"><span class="toc-number">1.5.</span> <span class="toc-text">注意点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-tag"><span class="toc-number">1.6.</span> <span class="toc-text">Git tag</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-Revert"><span class="toc-number">1.7.</span> <span class="toc-text">Git Revert</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/07/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" title="项目部署踩坑记录">项目部署踩坑记录</a><time datetime="2023-10-07T08:46:56.000Z" title="发表于 2023-10-07 16:46:56">2023-10-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/07/Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/" title="Shell脚本备份">Shell脚本备份</a><time datetime="2023-10-07T08:45:30.000Z" title="发表于 2023-10-07 16:45:30">2023-10-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/07/Git%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/" title="Git操作笔记">Git操作笔记</a><time datetime="2023-10-07T08:44:02.000Z" title="发表于 2023-10-07 16:44:02">2023-10-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AC%94%E8%AE%B0/" title="设计模式笔记">设计模式笔记</a><time datetime="2023-10-07T08:39:13.000Z" title="发表于 2023-10-07 16:39:13">2023-10-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/07/Trie%20%E5%AD%97%E5%85%B8%E6%A0%91%E5%89%8D%E7%BC%80%E6%A0%91/" title="Trie 字典树/前缀树">Trie 字典树/前缀树</a><time datetime="2023-10-07T08:25:47.000Z" title="发表于 2023-10-07 16:25:47">2023-10-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By LiangYutao</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
